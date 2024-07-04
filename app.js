@@ -21,5 +21,7 @@ res.sendFile('index.html', {root: '.'})
 
 app.listen(port, () => {
 
-console.log(`Example app listening on port ${port}`, bot.start())
+console.log(`Example app listening on port ${port}`)
+
+bot.start();
 });
