@@ -1,11 +1,8 @@
 import express from "express";
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { Bot, Context, InlineKeyboard, Keyboard } from "grammy";
-import {writeFile,createWriteStream} from "fs";
-import { Readable } from "stream";
+import { bot } from "./bot.js";
 
-const bot = new Bot("6345823380:AAEtun0-VQyxFCXYBPqtZHw6PK0Rcz-VXbU");
 
 const app = express();
 const port = 3000;
