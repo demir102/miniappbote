@@ -7,6 +7,8 @@ const app = express();
 const port = 3000;
 
 bot.command("start", (ctx) => ctx.reply("hello user"));
+bot.start(); 
+console.log("d");
 
 app.use('/css', express.static('css'));
 app.use('/js', express.static('js'));
@@ -22,5 +24,3 @@ app.listen(port, () => {
 
 console.log(`Example app listening on port ${port}`) 
 });
-
-bot.start(); 
