@@ -6,8 +6,7 @@ import {bot} from "./bot.js";
 const app = express();
 const port = 3000;
 
-bot.command("start", (ctx) => ctx.reply("hello user"));
-bot.start(); 
+bot.command("start", (ctx) => ctx.reply("hello user")); 
 console.log("d");
 
 app.use('/css', express.static('css'));
@@ -22,5 +21,5 @@ res.sendFile('index.html', {root: '.'})
 
 app.listen(port, () => {
 
-console.log(`Example app listening on port ${port}`) 
+console.log(`Example app listening on port ${port}`, bot.start())
 });
