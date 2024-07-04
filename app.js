@@ -1,8 +1,7 @@
 import express from "express";
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { bot } from "./bot.js";
-
+import {bot} from "./bot.js";
 
 const app = express();
 const port = 3000;
@@ -22,7 +21,6 @@ res.sendFile('index.html', {root: '.'})
 app.listen(port, () => {
 
 console.log(`Example app listening on port ${port}`) 
+});
 
 bot.start(); 
-
-});
