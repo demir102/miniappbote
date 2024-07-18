@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import {bot} from "./bot.js";
 
- const app = express(BOT_TOKEN);
+ const app = express(BOT_TOKEN); 
  const port = 3000;
  bot.command("start", (ctx) => ctx.reply("hello user")); 
  console.log("d");
