@@ -8,7 +8,11 @@
 </head>
 <body>
   <script>
-    console.log(window.Telegram.WebApp)
+    fetch("http://127.0.0.1./api/initData",
+{
+    method: "POST",
+    body: window.Telegram.WebApp.initData,
+})
     </script>
   <div>hello worl</div> 
     <img style="width: 250;" src="images\VENESIA.jpg" alt="картинка">

@@ -1,12 +1,16 @@
+import { ok } from "assert";
 import express from "express";
 import path from 'path';
 import { fileURLToPath } from 'url';
-import {bot} from "./bot.js";
+// import {bot} from "./bot.js";
 
- const app = express(BOT_TOKEN); 
+ const app = express();
+
+app.use(express.json());// ОНа берет текст каторый прелетает на сервер и из нее фармулирует текст
+
  const port = 3000;
- bot.command("start", (ctx) => ctx.reply("hello user")); 
- console.log("d");
+// bot.command("start", (ctx) => ctx.reply("hello user")); 
+//  console.log("d");
  app.use('/css', express.static('css'));
  app.use('/js', express.static('js'));
  app.use('/images',express.static('images'))
@@ -14,12 +18,13 @@ import {bot} from "./bot.js";
  res.sendFile('index.html', {root: '.'})
  });
 
- app.post("/api/initdData", (req, res) => {
+ app.post("/api/initData", (req, res) => {
    console.log(req.body);
+   res.send("ok")
  })
  app.listen(port, () => {
  console.log(`Example app listening on port ${port}`)
- bot.start();
+//  bot.start();
  });
 
 
