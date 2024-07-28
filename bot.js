@@ -6,3 +6,4 @@ let botToken = process.env.BOT_TOKEN
 let bot = new Bot(botToken);
 
 export {bot};
+export {botToken};

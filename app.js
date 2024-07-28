@@ -2,7 +2,8 @@ import { ok } from "assert";
 import express from "express";
 import path from 'path';
 import { fileURLToPath } from 'url';
-// import {bot} from "./bot.js";
+  // import {bot} from "./bot.js";
+  // import {botToken} from "./bot.js";
 
  const app = express();
 
@@ -19,9 +20,33 @@ app.use(express.json());// ОНа берет текст каторый прел�
  });
 
  app.post("/api/initData", (req, res) => {
-   console.log(req.body);
-   res.send("ok")
+    const check_initdata = req.body;
+  //  console.log(check_initdata);
+  //  res.send("ok")
+
+   const secret = crypto
+   .createHmac('sha256', 'WebAppData')
+   .update(botToken);
+
+   const arr = check_initdata.split('&');
+   const hashIndex = arr.findIndex(str => str.startsWith('hash='));
+   const hash = arr.splice(hashIndex)[0].split('=')[1];
+
+   arr.sort((a, b) => a.localeCompare(b));
+
+   const dataCheckString = arr.join('\n');
+
+   const _hash = crypto
+   .createHmac('sha256', secret.digest())
+   .update(dataCheckString)
+   .digest('hex');
+
+   if(_hash === hash){
+    console.log("ok!")
+   }
  })
+
+
  app.listen(port, () => {
  console.log(`Example app listening on port ${port}`)
 //  bot.start();
