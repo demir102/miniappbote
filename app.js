@@ -32,7 +32,8 @@ app.use(express.json());// ОНа берет текст каторый прел�
  });
 
  app.post("/api/initData", (req, res) => {
-    const check_initdata = req.body;
+   console.log("ok");
+   const check_initdata = req.body;
     // console.log(check_initdata);
     // res.send("ok")
 
