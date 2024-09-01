@@ -38,7 +38,7 @@ import crypto from "crypto"
  app.post("/api/initData", (req, res) => {
    const check_initdata = req.body;
 
-   console.log(check_initdata);
+   console.log(req);
    
    const decoded = decodeURIComponent(check_initdata); 
 
