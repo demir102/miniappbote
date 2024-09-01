@@ -64,6 +64,9 @@ import crypto from "crypto"
     if(_hash === hash){
      console.log("подпись проверена")
     }
+   else{
+      console.log("пошел прочь чудик!");
+   }
  })
 
 
