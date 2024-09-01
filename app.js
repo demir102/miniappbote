@@ -3,9 +3,21 @@ import express from "express";
 import path from 'path';
 import { fileURLToPath } from 'url';
   // import {bot} from "./bot.js";
-  // import {botToken} from "./bot.js";
+  //  import {botToken} from "./bot.js";
 
- const app = express();
+  //  const express = require('express');
+   
+  //  const cors = require('cors');
+  
+   const app = express();
+
+    const corsOptions = {
+     origin: 'https://miniappbote.onrender.com',
+
+     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+
+     allowedHeaders: 'Content-Type,Authorization',
+   };
 
 app.use(express.json());// ОНа берет текст каторый прелетает на сервер и из нее фармулирует текст
 
@@ -21,29 +33,29 @@ app.use(express.json());// ОНа берет текст каторый прел�
 
  app.post("/api/initData", (req, res) => {
     const check_initdata = req.body;
-  //  console.log(check_initdata);
-  //  res.send("ok")
+    // console.log(check_initdata);
+    // res.send("ok")
 
-   const secret = crypto
-   .createHmac('sha256', 'WebAppData')
-   .update(botToken);
+    const secret = crypto
+    .createHmac('sha256', 'WebAppData')
+    .update(botToken);
 
-   const arr = check_initdata.split('&');
-   const hashIndex = arr.findIndex(str => str.startsWith('hash='));
-   const hash = arr.splice(hashIndex)[0].split('=')[1];
+    const arr = check_initdata.split('&');
+    const hashIndex = arr.findIndex(str => str.startsWith('hash='));
+    const hash = arr.splice(hashIndex)[0].split('=')[1];
 
-   arr.sort((a, b) => a.localeCompare(b));
+    arr.sort((a, b) => a.localeCompare(b));
 
-   const dataCheckString = arr.join('\n');
+    const dataCheckString = arr.join('\n');
 
-   const _hash = crypto
-   .createHmac('sha256', secret.digest())
-   .update(dataCheckString)
-   .digest('hex');
+    const _hash = crypto
+    .createHmac('sha256', secret.digest())
+    .update(dataCheckString)
+    .digest('hex');
 
-   if(_hash === hash){
-    console.log("ok!")
-   }
+    if(_hash === hash){
+     console.log("ok!")
+    }
  })
 
 
