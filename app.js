@@ -22,7 +22,7 @@ import crypto from "crypto"
    //   allowedHeaders: 'Content-Type,Authorization',
    // };
 
- app.use(express.json());// ОНа берет текст каторый прелетает на сервер и из нее фармулирует текст
+// app.use(express.json());// ОНа берет текст каторый прелетает на сервер и из нее фармулирует текст
 
  const port = 3000;
 // bot.command("start", (ctx) => ctx.reply("hello user")); 

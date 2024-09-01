@@ -10,11 +10,11 @@
   <script>
     fetch("https://miniappbote.onrender.com/api/initData", {
     headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
+      // 'Accept': 'application/json',
+       'Content-Type': 'text/plain'
     },
     method: "POST",
-    body: JSON.stringify(window.Telegram.WebApp.initData)
+    body: window.Telegram.WebApp.initData
 })
     </script>
   <div>hello worl</div> 
