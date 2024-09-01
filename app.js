@@ -4,7 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import crypto from "crypto"
   // import {bot} from "./bot.js";
-  //  import {botToken} from "./bot.js";
+     import {botToken} from "./bot.js";
 
   //  const express = require('express');
    
@@ -37,7 +37,7 @@ import crypto from "crypto"
  app.post("/api/initData", (req, res) => {
    console.log("ok");
    const check_initdata = req.body;
-    console.log(check_initdata);
+    console.log("initdate:   " + check_initdata);
     // res.send("ok")
 
     const secret = crypto
