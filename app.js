@@ -37,7 +37,7 @@ import crypto from "crypto"
 
 
  app.post("/api/initData", (req, res) => {
-   const check_initdata = "query_id=AAGFrV43AAAAAIWtXjcIps6i&user=%7B%22id%22%3A928951685%2C%22first_name%22%3A%22%D0%94%D0%B0%D0%BC%D0%B8%D1%80%22%2C%22last_name%22%3A%22%D0%A2%D0%B0%D1%82%D0%B0%D1%80%D0%BE%D0%B2%22%2C%22language_code%22%3A%22ru%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1725206738&hash=cb828fc6f39238d58c1cbb96989bd338f3f078b274870b9c5e336ac0633ede2c";
+   const check_initdata = req.body;
    
    const decoded = decodeURIComponent(check_initdata); 
 
@@ -62,7 +62,7 @@ import crypto from "crypto"
     .digest('hex');
 
     if(_hash === hash){
-     console.log("ok!")
+     console.log("подпись проверена")
     }
  })
 
