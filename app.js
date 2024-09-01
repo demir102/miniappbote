@@ -12,15 +12,15 @@ import crypto from "crypto"
   
    const app = express();
 
-    const corsOptions = {
-     origin: 'https://miniappbote.onrender.com',
+   //  const corsOptions = {
+   //   origin: 'https://miniappbote.onrender.com',
 
-     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+   //   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 
-     allowedHeaders: 'Content-Type,Authorization',
-   };
+   //   allowedHeaders: 'Content-Type,Authorization',
+   // };
 
-app.use(express.json());// ОНа берет текст каторый прелетает на сервер и из нее фармулирует текст
+// app.use(express.json());// ОНа берет текст каторый прелетает на сервер и из нее фармулирует текст
 
  const port = 3000;
 // bot.command("start", (ctx) => ctx.reply("hello user")); 
@@ -32,10 +32,12 @@ app.use(express.json());// ОНа берет текст каторый прел�
  res.sendFile('index.html', {root: '.'})
  });
 
+
+
  app.post("/api/initData", (req, res) => {
    console.log("ok");
    const check_initdata = req.body;
-    // console.log(check_initdata);
+    console.log(check_initdata);
     // res.send("ok")
 
     const secret = crypto
