@@ -48,7 +48,7 @@ import crypto from "crypto"
     .createHmac('sha256', 'WebAppData')
     .update(botToken);
 
-    const arr = check_initdata.split('&');
+    const arr = decoded.split('&');
     const hashIndex = arr.findIndex(str => str.startsWith('hash='));
     const hash = arr.splice(hashIndex)[0].split('=')[1];
 
