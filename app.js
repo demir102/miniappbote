@@ -2,7 +2,8 @@ import { ok } from "assert";
 import express from "express";
 import path from 'path';
 import { fileURLToPath } from 'url';
-import crypto from "crypto"
+import crypto, { checkPrime } from "crypto"
+import { checkInitData } from "./js/checkInitData.js";
   // import {bot} from "./bot.js";
      import {botToken} from "./bot.js";
 
@@ -34,40 +35,10 @@ import crypto from "crypto"
  res.sendFile('index.html', {root: '.'})
  });
 
-
  app.post("/api/initData", (req, res) => {
-   const check_initdata = req.body.initData;
-
-   console.log(req.body.initData);
-   
-   const decoded = decodeURIComponent(check_initdata); 
-
-   console.log("initdate:   " + decoded);
-    // res.send("ok")
-
-    const secret = crypto
-    .createHmac('sha256', 'WebAppData')
-    .update(botToken);
-
-    const arr = decoded.split('&');
-    const hashIndex = arr.findIndex(str => str.startsWith('hash='));
-    const hash = arr.splice(hashIndex)[0].split('=')[1];
-
-    arr.sort((a, b) => a.localeCompare(b));
-
-    const dataCheckString = arr.join('\n');
-
-    const _hash = crypto
-    .createHmac('sha256', secret.digest())
-    .update(dataCheckString)
-    .digest('hex');
-
-    if(_hash === hash){
-     console.log("подпись проверена")
-    }
-   else{
-      console.log("пошел прочь чудик!");
-   }
+  const isValid = checkInitData(req.body.initData, botToken);
+ 
+  res.json({isValid: isValid,})
  })
 
 
