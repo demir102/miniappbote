@@ -35,7 +35,7 @@ import { checkInitData } from "./js/checkInitData.js";
  res.sendFile('index.html', {root: '.'})
  });
 
- app.post("/api/initData", (req, res) => {
+ app.post("https://miniappbote.onrender.com/api/initData", (req, res) => {
   const isValid = checkInitData(req.body.initData, botToken);
  
   res.json({isValid: isValid,})
