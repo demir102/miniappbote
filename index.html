@@ -16,7 +16,8 @@
     body: JSON.stringify( {initData: window.Telegram.WebApp.initData})
 })
 .then((res) => res.json())
-.then((data) => alert(data.isValid));
+.then((data) => alert(data.isValid))
+.catch((error) => console.log(error));
    </script>
    
 </head>
