@@ -35,12 +35,12 @@ import { checkInitData } from "./js/checkInitData.js";
  res.sendFile('index.html', {root: '.'})
  });
 
- app.get("https://miniappbote.onrender.com/api/initData", (req, res) => {
+ app.get("https://webapps-9eeb99389270.herokuapp.com/api/initData", (req, res) => {
   console.log("ok");
   
  })
 
- app.post("https://miniappbote.onrender.com/api/initData", (req, res) => {
+ app.post("https://webapps-9eeb99389270.herokuapp.com/api/initData", (req, res) => {
   console.log("ok!");
   
   const isValid = checkInitData(req.body.initData, botToken);
