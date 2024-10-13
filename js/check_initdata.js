@@ -29,5 +29,5 @@ export const verifyTelegramWebAppData = async (telegramInitData: string): boolea
   
   // если хэши равны, данные могут использоваться на вашем сервере.
   // Сложные типы данных представлены как сериализованные объекты JSON.
-  return _hash === hash;
+  return _hash === 
 };
