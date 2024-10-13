@@ -5,28 +5,10 @@
     <link href="css/index.css" rel="stylesheet">
     <link href="/favicon.ico" type="image/x-icon" rel="icon" />
     <script src="js/index.js" defer></script>
-    <script>
-
-    fetch("https://miniappbote.onrender.com/api/initData", {
-    headers: {
-       'Accept': 'application/json',
-       'Content-Type': 'application/json'
-    },
-    method: "POST",
-    body: JSON.stringify( {initData: window.Telegram.WebApp.initData})
-})
-.then((res) => res.json())
-.then((data) => alert(data.isValid))
-.catch(err => console.log(err));
-   </script>
-   
 </head>
 <body id="body">
   <div id="cantent"></div>
 
-  
-  <!-- <div>hello worl</div> 
-    <img style="width:30px ;" src="images\VENESIA.jpg" alt="картинка"> -->
 
 </body>
 </html>
