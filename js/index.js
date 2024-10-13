@@ -21,7 +21,7 @@ const cantent = document.getElementById("cantent");
       let result = await sendData()
       if(result.isValid){
          cantent.innerHTML += `<p> hello bot;</p>
-          <img style="width:50px ;" src="images/VENESIA.jpg" alt="картинка">`
+         <div> <img style="width:50px ;" src="images/VENESIA.jpg" alt="картинка"> </div>`
            
       }
 
