@@ -1,5 +1,7 @@
+import crypto from "crypto"
+
 function checkInitData(initData, botToken){
-   const decoded = decodeURIComponent(initData); 
+     const decoded = decodeURIComponent(initData); 
 
     const secret = crypto
     .createHmac('sha256', 'WebAppData')
@@ -27,5 +29,8 @@ function checkInitData(initData, botToken){
  }
 
 
+
 export {checkInitData}
+
+export {checkInitData}   
 
