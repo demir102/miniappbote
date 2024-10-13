@@ -32,5 +32,5 @@ function checkInitData(initData, botToken){
 
 export {checkInitData}
 
-export {checkInitData}   
+
 
